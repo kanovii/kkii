@@ -1,19 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 
+const postsWeMade = [
+  {
+    date: '7/1'
+
+
+  },
+  {
+    date: '7/3'
+    
+
+  }
+]
+
+function Post({date}) {
+  return(
+    <div> 
+      {date}
+      <div> PIC</div>
+    </div>
+    
+  )
+}
+
+function renderPosts(items) {
+  return(
+    <Post date={items.date} />
+
+  )
+}
+
 function App() {
-
-  let navi = '최소진 나빠요~~^^7';
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {navi}
-        </p>
-        
-      </header>
+    <div className='App'>
+      {postsWeMade.map(items => 
+        <Post date={items.date} />
+      )}
+
+      {postsWeMade.map(renderPosts)}
     </div>
   );
 }
